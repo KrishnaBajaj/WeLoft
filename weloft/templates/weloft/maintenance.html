@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html><font style="font-family:Raleway;">
+<style>
+  .button1 {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+{% extends 'index.html' %}
+{% block mycontent %}
+<title>Maintenance</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body id="maintenancepage">
+<!-- Pricing Row -->
+<div class="w3-row-padding w3-center w3-padding-64" id="pricing">
+    <h1>Maintenance</h1>
+    <h2>Monthly Fee Structure and Status</h2><br><br>
+    <div class="w3-third w3-margin-bottom">
+      <ul class="w3-ul w3-border w3-hover-shadow">
+        <li class="w3-theme">
+          <p class="w3-xlarge">Fee Structure</p>
+        </li>
+        <li class="w3-padding-16"><b>&#8377; 2700</b><br> Maintenance of Building</li>
+        <li class="w3-padding-16"><b>&#8377; 1000</b><br> Service Charges*</li>
+        <li class="w3-padding-16"><b>&#8377; 500</b><br> Parking Charges**</li>
+        <li class="w3-padding-16"><b>&#8377; 750</b> <br>Property Tax and Water Charges***</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">&#8377; 4950</h2>
+          <span class="w3-opacity">Total</span>
+        </li>
+        <li class="w3-theme-l5 w3-padding-24">
+          <button class="w3-button w3-teal w3-padding-large" onclick="location.href='{% url 'payd'%}'"><i class="fa fa-check"></i> Pay</button>
+        </li>
+      </ul>
+    </div>
+    <div>
+    <button class="button1" style="vertical-align:middle" onclick="location.href='{% url 'payd'%}'"><span>Payment Pending </span></button>
+    <p><br><br><br><br><br>*Includes housekeeping, security, electricity for common areas, equipment	Equally divided among the flats<br><br>
+    **By number of parking slots of each member<br><br>
+   ***Actual consumption of each flat, or number of water inlets</p>
+    </div>
+</div>
+</body></font>
+</html>
+{% endblock  %}

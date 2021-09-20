@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<title>WeLoft</title>
+<style>
+.align_features{
+position:relative;
+}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'weloft/css/mystyles.css' %}">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+{% block content %}
+{% if user.is_authenticated %}
+<body class="w3-light-grey">
+<!-- Top container -->
+<div class="w3-bar w3-top w3-grey w3-xxlarge" style="z-index:7;border: 1px solid #ccc;">
+<button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();">
+			<i class="fa fa-bars"></i>Menu</button>
+<font style="font-family:Raleway;"><span class="w3-bar-item w3-left"><b>Home</b></span></font>
+<span class="w3-bar-item w3-right"><img src="{% static 'weloft/images/newlogo.png' %}" alt="WeLoft" width="125" height="64"></span>
+</div>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-light-grey" style="z-index:6;width:300px; border: 1px solid #ccc;" id="mySidebar"><br>
+<div class="w3-container w3-row"><br><br>
+<div class="w3-col s4">
+<img src="https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png" class="w3-circle w3-margin-right" style="width:46px">
+</div>
+<div class="w3-col s8 w3-bar"><font style="font-family:Raleway;">
+<span>Welcome, <hr><strong>{{user.username}}</strong></span><br>
+<span>Flat no:  <strong>{{user.Flat_no}}</strong></span><br></font>
+<p><a href="{% url 'logout' %}"><font style="font-family:verdana;" color="orange">Logout</font></a></p>
+</div>
+</div>
+<hr>
+<div class="w3-bar-block">
+<a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+<a href="{% url 'overview' %}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-building"></i>	Overview</a>
+<a href="{% url 'cal:calendar' %}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar"></i>	Calendar</a>
+<a href="{% url 'hhv' %}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-handshake-o"></i>	Helping Hands</a>
+<a href="{% url 'maintenance' %}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-book"></i>	Maintenance</a>
+<a href="http://127.0.0.1:8000/messages/" class="w3-bar-item w3-button w3-padding "><i class="fa fa-comment"></i>	Messaging</a>
+<a href="{% url 'booking' %}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-edit"></i>	Booking</a>
+<br>
+<br>
+
+<div class="footer">
+      {% block footer %}
+       Contact <a href="mailto:weloft6@gmail.com">WeLoft</a>
+      {% endblock %}
+</div>
+
+</div>
+</nav>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+<!-- Header -->
+<header class="w3-container" style="padding-top:22px"><br><br>
+<h5><b><i class="fa fa-building"></i><font style="font-family:Raleway;">My Apartment</font></b></h5>
+</header>
+
+<div class="w3-row-padding w3-margin-bottom">
+<div class="w3-quarter">
+<div class="w3-container w3-indigo w3-padding-16">
+<div class="w3-left"><i class="fa fa-calendar w3-xxxlarge"></i></div>
+<div class="w3-right">
+</div>
+<div class="w3-clear"></div>
+<button onclick="location.href='{% url 'cal:calendar'%}'" class="w3-button w3-indigo w3-xlarge w3-hover-white"> Calendar </button>
+</div>
+</div>
+<div class="w3-quarter">
+<div class="w3-container w3-green w3-padding-16">
+<div class="w3-left"><i class="fa fa-handshake-o w3-xxxlarge"></i></div>
+<div class="w3-right">
+</div>
+<div class="w3-clear"></div>
+<button onclick="location.href='{% url 'hhv'%}'" class="w3-button w3-green w3-xlarge w3-hover-white"> Helping Hands </button>
+</div>
+</div>
+<div class="w3-quarter">
+<div class="w3-container w3-red w3-padding-16">
+<div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+<div class="w3-right">
+</div>
+<div class="w3-clear"></div>
+<button onclick="location.href = 'http://127.0.0.1:8000/messages';" class="w3-button w3-red w3-xlarge w3-hover-white"> Messages
+</button>
+</div>
+</div>
+<div class="w3-quarter">
+<div class="w3-container w3-orange w3-text-white w3-padding-16">
+<div class="w3-left"><i class="fa fa-book w3-xxxlarge"></i></div>
+<div class="w3-right">
+</div>
+<div class="w3-clear"></div>
+<button onclick="location.href='{% url 'booking'%}'" class="w3-button w3-orange w3-text-white w3-xlarge w3-hover-white"> Bookings
+</button>
+</div>
+</div>
+</div>
+<!--  <iframe src="http://127.0.0.1:8000/weloft/calendar" align="left" width="50%" height="50%" name="HelpingHands" id="HelpingHands" allowTransparency="true" scrolling="yes" frameborder="0"  >
+</iframe>
+<iframe src="http://127.0.0.1:8000/messages" align="right" width="50%" height="50%" name="Messages" id="Mesages" allowTransparency="true" scrolling="yes" frameborder="0" >
+</iframe> -->
+
+<div>
+
+{% block mycontent %}
+{% endblock  %}
+
+</div>
+
+<!-- Footer
+<div id="footer">
+<h4>WeLoft...Your All-in-one Apartment Solutions</h4>
+</div>  -->
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+if (mySidebar.style.display === 'block') {
+mySidebar.style.display = 'none';
+overlayBg.style.display = "none";
+} else {
+mySidebar.style.display = 'block';
+overlayBg.style.display = "block";
+}
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+mySidebar.style.display = "none";
+overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>
+{% else %}
+<h4>You are Logging Out...</h4>
+<meta http-equiv="refresh" content="2; URL=http://127.0.0.1:8000/ ">
+<meta name="keyword" content="automatic redirection">
+{% endif %}
+{% endblock %}

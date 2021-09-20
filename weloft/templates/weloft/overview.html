@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<head>
+<style>
+table {
+font-family: arial, sans-serif;
+border-collapse: collapse;
+width: 75%;
+}
+
+td, th {
+border: 1px solid #000000;
+text-align: left;
+padding: 8px;
+}
+
+tr:nth-child(odd){
+background-color: #BDBDBD;
+}
+tr:nth-child(even){
+background-color: #DFDEDE;
+}
+tr:nth-child(1) {
+background-color: #A3A3A3;
+}
+</style>
+{% extends 'index.html' %}
+
+{% block mycontent %}
+<div class="w3-container w3-padding-32" id="about">
+<p>WeLoft was an idea born out of our desire to extend our efforts of help and assistance towards our immediate society.
+For a long time, the idea remained an idea in the minds of us 6 who are students of class 11 studying in NPS Rajajinagar.
+But it was only after we found an opportunity through the CISCO talent outreach did out idea get a soul.
+An opportunity to work with individuals with immense experience at CISCO espicially our mentor Amit Sir was all that we needed to kick start our idea to a running website.
+Today what you see on this website is a cumulative effort of each of the team members with the guidence of Amit Sir. Each of the members delivered to the team in their own unique way putting their individual talents forward.
+Though our talents were different our goal was the same, - to deliver a holistic app for apartment management for the growing cities in our country. It was a problem which we witnessed on a daily basis and we sought the urge to build a solution.
+</p>
+</div>
+{% endblock  %}

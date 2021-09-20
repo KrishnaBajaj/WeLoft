@@ -1,0 +1,18 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+
+<html>
+<font color="black" font size="6">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+  <main> 
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+</font>
+</html>
